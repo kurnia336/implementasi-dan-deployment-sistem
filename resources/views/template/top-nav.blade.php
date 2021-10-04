@@ -21,7 +21,7 @@
                         </li>
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
-                                <img src="images/user/form-user.png" height="40" width="40" alt="">
+                                <img src="{{ asset('images/user/form-user.png')}}" height="40" width="40" alt="">
                             </div>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">

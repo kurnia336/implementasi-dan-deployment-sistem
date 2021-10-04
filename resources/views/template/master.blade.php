@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>MAFLPN - Implementasi Dan Deployment Sistem</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.jpg')}}">
     @include('template.header')
 
 </head>
@@ -40,8 +40,8 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html">
-                    <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
-                    <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
+                    <b class="logo-abbr"><img src="{{ asset('images/logo.png')}}" alt=""> </b>
+                    <span class="logo-compact"><img src="{{ asset('images/logo-compact.png')}}" alt=""></span>
                     <span class="brand-title">
                         <b style="color:white">MAFLPN</b>
                     </span>
