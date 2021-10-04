@@ -25,3 +25,4 @@
 
 
     <script src="./js/dashboard/dashboard-1.js"></script>
+    @yield('js-lokal')

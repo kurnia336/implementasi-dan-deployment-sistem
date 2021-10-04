@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
+    <title>MAFLPN - Implementasi Dan Deployment Sistem</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.jpg">
     @include('template.header')
 
 </head>
@@ -43,7 +43,7 @@
                     <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
                     <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
                     <span class="brand-title">
-                        <img src="images/logo-text.png" alt="">
+                        <b style="color:white">MAFLPN</b>
                     </span>
                 </a>
             </div>
@@ -74,7 +74,7 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            @yield('template.body')
+            @yield('isi')
         </div>
         <!--**********************************
             Content body end
