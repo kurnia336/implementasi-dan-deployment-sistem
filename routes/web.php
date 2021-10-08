@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,8 @@ use App\Http\Controllers\CustomerController;
 */
 Route::redirect('/', '/customer/data');
 Route::get('/customer/data', [CustomerController::class, 'index']);
+Route::get('/customer/tambah1', [CustomerController::class, 'create']);
+Route::post('/customer/tambah1', [CustomerController::class, 'store']);
+Route::get('/ajax/kota', [AjaxController::class, 'kota']);
+Route::get('/ajax/kecamatan', [AjaxController::class, 'kecamatan']);
+Route::get('/ajax/kelurahan', [AjaxController::class, 'kelurahan']);

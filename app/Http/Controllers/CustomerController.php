@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Provinsi;
 
 class CustomerController extends Controller
 {
@@ -15,8 +16,7 @@ class CustomerController extends Controller
     public function index()
     {
         return view('customer.data.body',[
-	    'customers' => Customer::all(),
-	    'submenu' => "Data Customer"
+	    'customers' => Customer::all()
 	]);
     }
 
@@ -27,7 +27,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.tambah-1.body',[
+	    'provinsis' => Provinsi::all()
+	]);
     }
 
     /**
@@ -38,7 +40,24 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+	    'name' => 'required|max:100',
+	    'address' => 'required|max:100',
+	    'province' => 'required',
+	    'city' => 'required',
+	    'district' => 'required',
+	    'subdistrict' => 'required',
+	    'photo' => 'required'
+	]);
+
+	$customer = Customer::create([
+    	    'nama' => $request->name,
+	    'alamat' => $request->address,
+	    'foto' => $request->photo,
+	    'id_kel' => $request->subdistrict
+	]);
+
+	return redirect('/customer/data')->with('success', 'Customer baru telah ditambahkan!');
     }
 
     /**
