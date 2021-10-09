@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
     protected $table = 'customer';
-    protected $fillable = ['nama', 'alamat', 'foto', 'id_kel'];
+    protected $fillable = ['nama', 'alamat', 'foto', 'file_path','id_kel'];
     public $timestamps = false;
 
     public function kelurahan()

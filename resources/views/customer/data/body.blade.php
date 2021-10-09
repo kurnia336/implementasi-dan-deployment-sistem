@@ -8,7 +8,7 @@
                     <div class="col-12">
 		    @if(session()->has('success'))
 			<div class="alert alert-success" role="alert">
-  			    {{ session('succcess') }}
+  			    {{ session('success') }}
 			</div>
 		    @endif
                         <div class="card">
@@ -28,8 +28,8 @@
                                             <tr>
                                                 <td>{{ $customer->nama }}</td>
                                                 <td>{{ $customer->alamat }}</td>
-						@if ($customer->foto == null)
-						    <td><img src="{{ $customer->filepath }}"></td>
+						@if ($customer->file_path)
+						    <td><img src="{{ asset('/storage/' . $customer->file_path) }}"></td>
 						@else
 						    <td><img src="{{ $customer->foto }}"></td>
 						@endif
