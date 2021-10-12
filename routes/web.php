@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::get('/customer/tambah1', [CustomerController::class, 'create1']);
 Route::post('/customer/tambah1', [CustomerController::class, 'store1']);
 Route::get('/customer/tambah2', [CustomerController::class, 'create2']);
 Route::post('/customer/tambah2', [CustomerController::class, 'store2']);
+Route::get('/barcode/cetaktnj108', [BarangController::class, 'index']);
+Route::post('/barcode/printpdf', [BarangController::class, 'print']);
 Route::get('/ajax/kota', [AjaxController::class, 'kota']);
 Route::get('/ajax/kecamatan', [AjaxController::class, 'kecamatan']);
 Route::get('/ajax/kelurahan', [AjaxController::class, 'kelurahan']);

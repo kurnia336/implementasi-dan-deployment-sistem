@@ -16,7 +16,7 @@
                             <i class="icon-menu menu-icon"></i><span class="nav-text">Barcode</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="/barcode/cetaklabeltnj108">Cetak TnJ 108</a></li>
+                            <li><a href="/barcode/cetaktnj108">Cetak TnJ 108</a></li>
                             <li><a href="/barcode/barcodescanner">Scanner</a></li>
                         </ul>
                     </li>
