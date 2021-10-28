@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kota;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
+use App\Models\Toko;
 
 class AjaxController extends Controller
 {
@@ -27,6 +28,23 @@ class AjaxController extends Controller
     {
         return view('ajax.kelurahan',[
 	    'kelurahans' => Kelurahan::where('dis_id', $request->id)->get(),
+	]);
+    }
+
+    public function toko(Request $request)
+    {
+        return view('ajax.toko',[
+	    'toko' => Toko::where('barcode', $request->id)->first(),
+	]);
+    }
+
+    public function kunjungan(Request $request)
+    {
+        return view('ajax.kunjungan',[
+	    'status' => $request->status,
+	    'latitude' => $request->latitude,
+	    'longitude' => $request->longitude,
+	    'accuracy' => $request->accuracy,
 	]);
     }
 }

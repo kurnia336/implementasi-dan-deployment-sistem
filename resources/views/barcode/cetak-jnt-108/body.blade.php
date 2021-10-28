@@ -18,7 +18,7 @@
 						<form method="post" action="/barcode/printpdf" target="_blank">
 						@csrf
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Generate PDF</h5>
+                                                        <h5 class="modal-title">Cetak</h5>
                                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                                         </button>
                                                     </div>

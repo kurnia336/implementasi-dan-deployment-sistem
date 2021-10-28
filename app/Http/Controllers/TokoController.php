@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Barang;
+use App\Models\Toko;
 use PDF;
 
-class BarangController extends Controller
+class TokoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        return view('barcode.cetak-jnt-108.body',[
-	    'barangs' => Barang::all()
+        return view('geolocation.list-toko.body',[
+	    'tokos' => Toko::all()
 	]);
     }
 
@@ -27,7 +27,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('geolocation.input-titik-awal.body');
     }
 
     /**
@@ -38,7 +38,26 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	$barang = Toko::orderBy('barcode','desc')->first();
+	$barcode = $barang->barcode + 1;
+	$barcode = str_pad($barcode, 8, "0", STR_PAD_LEFT);
+
+	$validatedData = $request->validate([
+	    'store_name' => 'required|max:50',
+	    'latitude' => 'required',
+	    'longitude' => 'required',
+	    'accuracy' => 'required'
+	]);
+
+	$customer = Toko::create([
+	    'barcode' => $barcode,
+    	    'nama_toko' => $request->store_name,
+	    'latitude' => $request->latitude,
+	    'longitude' => $request->longitude,
+	    'accuracy' => $request->accuracy
+	]);
+
+	return redirect('/geolocation/listtoko')->with('success', 'Data toko telah ditambahkan!');
     }
 
     /**
@@ -87,27 +106,27 @@ class BarangController extends Controller
     }
 
     /**
-     * Print a listing of the resource.
+     * Print a single of the resource.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function print(Request $request)
+    public function print($id)
     {
-	return view('print.barcode-tnj-108',[
-	    'barang' => Barang::all(),
-	    'baris' => $request->baris,
-	    'kolom' => $request->kolom
+	$pdf = PDF::loadView('print.barcode-toko', [
+	    'id' => $id
 	]);
+	return $pdf->download('Toko.pdf');
     }
-    
+
     /**
-     * Display a barcode scanner.
+     * Display the barcode scanner.
      *
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function scan()
+    public function barcodeScanner()
     {
-        return view('barcode.scanner.body');
+        return view('geolocation.titik-kunjungan.body');
     }
 }

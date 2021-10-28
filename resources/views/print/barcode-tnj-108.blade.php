@@ -13,8 +13,7 @@
 		<?php $bool=true; ?>
 		@endif
 		@if($bool)
-		<?php echo DNS1D::getBarcodeHTML($barang[$count]->id_barang, 'UPCA',1,15); ?>
-		{{ $barang[$count]->id_barang }}<br>
+		<?php echo DNS1D::getBarcodeSVG($barang[$count]->id_barang, 'UPCE'); ?>
 		{{ $barang[$count]->nama }}
 		<?php $count++; ?>
 		@else
@@ -32,6 +31,9 @@
 	@endfor
     </table>
 
+    <script>
+	window.print();
+    </script>
 </body>
 </html>
 

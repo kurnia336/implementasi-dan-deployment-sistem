@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\TokoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,14 @@ Route::get('/customer/tambah2', [CustomerController::class, 'create2']);
 Route::post('/customer/tambah2', [CustomerController::class, 'store2']);
 Route::get('/barcode/cetaktnj108', [BarangController::class, 'index']);
 Route::post('/barcode/printpdf', [BarangController::class, 'print']);
+Route::get('/barcode/scanner', [BarangController::class, 'scan']);
+Route::get('/geolocation/listtoko', [TokoController::class, 'index']);
+Route::get('/geolocation/listtoko/printbarcode/{id}', [TokoController::class, 'print']);
+Route::get('/geolocation/inputtitikawal', [TokoController::class, 'create']);
+Route::post('/geolocation/inputtitikawal', [TokoController::class, 'store']);
+Route::get('/geolocation/titikkunjungan', [TokoController::class, 'barcodeScanner']);
 Route::get('/ajax/kota', [AjaxController::class, 'kota']);
 Route::get('/ajax/kecamatan', [AjaxController::class, 'kecamatan']);
 Route::get('/ajax/kelurahan', [AjaxController::class, 'kelurahan']);
+Route::get('/ajax/toko', [AjaxController::class, 'toko']);
+Route::get('/ajax/kunjungan', [AjaxController::class, 'kunjungan']);
