@@ -52,6 +52,16 @@ class CustomerController extends Controller
      */
     public function store1(Request $request)
     {
+	
+	$jumlah = Customer::count();
+	if($jumlah == 0){
+	    $id = "00000000";
+	} else {
+	    $customer = Customer::orderBy('id_customer','desc')->first();
+	    $id = $customer->id_customer + 1;
+	    $id = str_pad($id, 8, "0", STR_PAD_LEFT);
+	}
+	
         $validatedData = $request->validate([
 	    'name' => 'required|max:100',
 	    'address' => 'required|max:100',
@@ -63,6 +73,7 @@ class CustomerController extends Controller
 	]);
 
 	$customer = Customer::create([
+	    'id_customer' => $id,
     	    'nama' => $request->name,
 	    'alamat' => $request->address,
 	    'foto' => $request->photo,
@@ -80,6 +91,15 @@ class CustomerController extends Controller
      */
     public function store2(Request $request)
     {
+	$jumlah = Customer::count();
+	if($jumlah == 0){
+	    $id = "00000000";
+	} else {
+	    $customer = Customer::orderBy('id_customer','desc')->first();
+	    $id = $customer->id_customer + 1;
+	    $id = str_pad($id, 8, "0", STR_PAD_LEFT);
+	}
+
         $validatedData = $request->validate([
 	    'name' => 'required|max:100',
 	    'address' => 'required|max:100',
@@ -100,6 +120,7 @@ class CustomerController extends Controller
 	fwrite($fp, base64_decode($base64_code));
 
 	$customer = Customer::create([
+	    'id_customer' => $id,
     	    'nama' => $request->name,
 	    'alamat' => $request->address,
 	    'file_path' => $file,

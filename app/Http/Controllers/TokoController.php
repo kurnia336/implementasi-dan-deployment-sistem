@@ -38,9 +38,14 @@ class TokoController extends Controller
      */
     public function store(Request $request)
     {
-	$barang = Toko::orderBy('barcode','desc')->first();
-	$barcode = $barang->barcode + 1;
-	$barcode = str_pad($barcode, 8, "0", STR_PAD_LEFT);
+	$jumlah = Toko::count();
+	if($jumlah == 0){
+	    $barcode = "00000000";
+	} else {
+	    $barang = Toko::orderBy('barcode','desc')->first();
+	    $barcode = $barang->barcode + 1;
+	    $barcode = str_pad($barcode, 8, "0", STR_PAD_LEFT);
+	}
 
 	$validatedData = $request->validate([
 	    'store_name' => 'required|max:50',

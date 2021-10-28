@@ -11,11 +11,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-validation">
-                                    <form class="form-valide" action="/customer/tambah1" method="post">
+                                    <form class="form-valide" action="/customer/tambah1" method="post" autocomplete="off">
 					@csrf
                                         <div class="form-group row">
                                             <div class="offset-lg-1 col-lg-9">
-                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="nama" name="name" placeholder="Name" autocomplete required value="{{ old('name') }}">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="nama" name="name" placeholder="Name" required value="{{ old('name') }}">
                                             </div>
 					    @error('name')
 						<div class="offset-lg-1 col-lg-9">
@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="offset-lg-1 col-lg-9">
-                                                <input type="text" class="form-control @error('address') is-invalid @enderror" id="alamat" name="address" placeholder="Address" autocomplete required value="{{ old('address') }}">
+                                                <input type="text" class="form-control @error('address') is-invalid @enderror" id="alamat" name="address" placeholder="Address" required value="{{ old('address') }}">
                                             </div>
 					    @error('address')
 						<div class="offset-lg-1 col-lg-9">
