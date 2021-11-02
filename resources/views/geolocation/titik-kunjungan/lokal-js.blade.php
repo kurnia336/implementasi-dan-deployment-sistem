@@ -52,7 +52,7 @@
 		}
 	    	function showPosition(position) {
 		    var rataacc = (Number($('#accuracy-toko').html()) + Number(position.coords.accuracy)) / 2;
-		    var jarak = getDistanceFromLatLonInKm(Number($('#accuracy-toko').html()), Number($('#accuracy-toko').html()), Number(position.coords.latitude), Number(position.coords.longitude));
+		    var jarak = getDistanceFromLatLonInKm(Number($('#latitude-toko').html()), Number($('#longitude-toko').html()), Number(position.coords.latitude), Number(position.coords.longitude));
 		    var status;
 		    if(jarak <= rataacc){
 		    	status = true;

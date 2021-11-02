@@ -54,7 +54,7 @@ class TokoController extends Controller
 	    'accuracy' => 'required'
 	]);
 
-	$customer = Toko::create([
+	$toko = Toko::create([
 	    'barcode' => $barcode,
     	    'nama_toko' => $request->store_name,
 	    'latitude' => $request->latitude,
