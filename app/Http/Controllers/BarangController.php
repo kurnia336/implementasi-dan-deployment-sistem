@@ -94,8 +94,9 @@ class BarangController extends Controller
      */
     public function print(Request $request)
     {
+	$barang = explode(",", $request->barang);
 	return view('print.barcode-tnj-108',[
-	    'barang' => Barang::all(),
+	    'barang' => Barang::whereIn('id_barang', $barang)->get(),
 	    'baris' => $request->baris,
 	    'kolom' => $request->kolom
 	]);

@@ -3,6 +3,7 @@
     @include('barcode.cetak-jnt-108.lokal-css')
 @endsection
 @section('isi')
+	
 	   <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -15,7 +16,7 @@
                                     <div class="modal fade" id="printModal">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
-						<form method="post" action="/barcode/printpdf" target="_blank">
+						<form method="post" id="form" action="/barcode/printpdf" target="_blank">
 						@csrf
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Cetak</h5>
@@ -24,15 +25,16 @@
                                                     </div>
                                                     <div class="modal-body">
                                         	    	<div class="form-group">
-                                            		    <input type="text" class="form-control input-default" placeholder="Kolom" name="kolom" required>
+                                            		    <input type="text" class="form-control input-default" id="kolom" name="kolom" placeholder="Kolom" required>
                                         		</div>
                                         		<div class="form-group">
-                                                	    <input type="text" class="form-control input-default" placeholder="Baris" name="baris" required>
+                                                	    <input type="text" class="form-control input-default" id="baris" name="baris" placeholder="Baris" required>
                                         		</div>
+							<input type="hidden" id="barang" name="barang">
 						    </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                        <button type="submit" class="btn btn-primary" id="save">Save changes</button>
                                                     </div>
 						</form>
                                             </div>
@@ -42,6 +44,7 @@
                                     <table class="table table-striped table-bordered zero-configuration display nowrap" id="example" style="width:100%">
                                         <thead>
                                             <tr>
+						<th style="width: 5%"><input type="checkbox" id="select_all"></th>
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                             </tr>
@@ -49,6 +52,7 @@
                                         <tbody>
 					    @foreach ($barangs as $barang)
                                             <tr>
+						<td><input type="checkbox" class="select" value="{{ $barang->id_barang }}"></td>
                                                 <td>{{ $barang->id_barang }}</td>
                                                 <td>{{ $barang->nama }}</td>
                                             </tr>
@@ -67,6 +71,7 @@
                     </div>
                 </div>
             </div>
+	    
 @endsection
 @section('lokal-js')
     @include('barcode.cetak-jnt-108.lokal-js')
