@@ -18,6 +18,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="/barcode/cetaktnj108">Cetak TnJ 108</a></li>
+			    <li><a href="/barcode/tambah">Tambah Barang</a></li>
                             <li><a href="/barcode/scanner">Scanner</a></li>
                         </ul>
 			</li>

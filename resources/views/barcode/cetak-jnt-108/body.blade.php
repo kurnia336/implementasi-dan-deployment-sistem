@@ -7,7 +7,11 @@
 	   <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-
+		    @if(session()->has('success'))
+			<div class="alert alert-success" role="alert">
+  			    {{ session('success') }}
+			</div>
+		    @endif
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Tabel Barang</h4>

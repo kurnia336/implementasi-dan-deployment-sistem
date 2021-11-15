@@ -23,6 +23,8 @@ Route::post('/customer/tambah1', [CustomerController::class, 'store1']);
 Route::get('/customer/tambah2', [CustomerController::class, 'create2']);
 Route::post('/customer/tambah2', [CustomerController::class, 'store2']);
 Route::get('/barcode/cetaktnj108', [BarangController::class, 'index']);
+Route::get('/barcode/tambah', [BarangController::class, 'create']);
+Route::post('/barcode/tambah', [BarangController::class, 'store']);
 Route::post('/barcode/printpdf', [BarangController::class, 'print']);
 Route::get('/barcode/scanner', [BarangController::class, 'scan']);
 Route::get('/geolocation/listtoko', [TokoController::class, 'index']);

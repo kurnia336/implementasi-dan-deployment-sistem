@@ -14,7 +14,6 @@
 		}
 	    });
 	    $('#form').submit(function(e){
-		//e.preventDefault();
 		var checkbox = $('.select:checked');
 		var val;
 		for(var i = 0; i < checkbox.length ; i++ ){

@@ -27,7 +27,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barcode.tambah.body');
     }
 
     /**
@@ -38,7 +38,15 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+	    'name' => 'required',
+	]);
+
+	$barang = Barang::create([
+    	    'nama' => $request->name,
+	]);
+
+	return redirect('/barcode/cetaktnj108')->with('success', 'Barang baru telah ditambahkan!');
     }
 
     /**
