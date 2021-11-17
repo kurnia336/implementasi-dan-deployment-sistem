@@ -32,6 +32,11 @@
 			    <li><a href="/geolocation/titikkunjungan">Titik Kunjungan</a></li>
                         </ul>
 			</li>
+			<li>
+                        <a href="/excel" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Excel</span>
+                        </a>
+                    	</li>
                     </li>
                 </ul>
             </div>

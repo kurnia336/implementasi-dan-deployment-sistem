@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\TokoController;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::get('/geolocation/listtoko/printbarcode/{id}', [TokoController::class, 'p
 Route::get('/geolocation/inputtitikawal', [TokoController::class, 'create']);
 Route::post('/geolocation/inputtitikawal', [TokoController::class, 'store']);
 Route::get('/geolocation/titikkunjungan', [TokoController::class, 'barcodeScanner']);
+Route::get('/excel', [ExcelController::class, 'create']);
+Route::post('/excel', [ExcelController::class, 'store']);
 Route::get('/ajax/kota', [AjaxController::class, 'kota']);
 Route::get('/ajax/kecamatan', [AjaxController::class, 'kecamatan']);
 Route::get('/ajax/kelurahan', [AjaxController::class, 'kelurahan']);
